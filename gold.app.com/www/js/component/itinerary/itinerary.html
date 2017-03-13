@@ -1,0 +1,54 @@
+<ion-view view-title="Itinerary">
+
+	<ion-content class="has-header">
+
+		<ion-refresher
+
+			pulling-text="Refresh..."
+
+			on-refresh="vm.getItinerary()">
+
+		</ion-refresher>
+
+		<ion-list>
+
+			<ion-item class="item-icon-right" ng-repeat="item in vm.itinerary" ng-click="vm.openModal(item.id)">
+				
+				<i class="icon ion-location calm" ></i>
+				
+				<h2>Place : {{item.place.description}} </h2>
+
+				<p>Scheduled Appointment : {{item.scheduledAppointment  | date}}</p>
+
+				<p>Shift : {{item.shift.description}}</p>		
+				
+				<ion-option-button class="button-dark assertive">Details</ion-option-button>
+
+			</ion-item>
+
+		</ion-list>
+
+	</ion-content>
+
+</ion-view>
+<script id="modalAppointment" type="text/ng-template">
+
+	<ion-modal-view>
+
+		<ion-header-bar class="bar-assertive">
+
+			<h1 class="title">GoldApp</h1>
+
+			<div class="buttons">
+		
+				<button class="button button-clear button-icon ion-close-circled" ng-click="vm.closeModal()"></button>
+		
+			</div>
+		
+		</ion-header-bar>
+
+		<appointment-schedule cita="vm.appointment"></appointment-schedule>
+
+	</ion-modal-view>
+
+</script>

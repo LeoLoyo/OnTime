@@ -1,0 +1,232 @@
+<style>
+  .material-icons {
+      position: static;
+      margin: 0;
+  }
+  md-toolbar.md-table-toolbar form {
+      margin-left: 16px;
+  }
+  md-toolbar.md-table-toolbar form > input{
+    width: 100%;
+    margin: 0;
+    border:none !important;
+    color: rgba(0,0,0,0.87);
+  }
+
+  md-toolbar.md-table-toolbar form > input:focus{
+    border:none !important;
+    background-color: none;
+  }
+</style>
+
+<md-content layout="column" flex ng-init="toolsFilter=false">
+
+  <md-card>
+
+    <md-toolbar class="md-table-toolbar md-default" ng-hide="toolsFilter">
+  
+      <div class="md-toolbar-tools">
+
+        <h2 class="md-title">List of Users</h2>
+
+        <div flex class="flex"></div>
+    
+        <button class="md-button md-icon-button md-ink-ripple" ng-click="toolsFilter = !toolsFilter">
+    
+          <md-icon class="material-icons">filter_list</md-icon>
+    
+        </button>
+
+        <button class="md-button md-icon-button md-ink-ripple">
+          
+          <md-icon class="material-icons">person_add</md-icon>
+        
+        </button>
+      
+      </div>
+   
+    </md-toolbar>
+
+    <md-toolbar class="md-table-toolbar md-default" aria-hidden="false" ng-show="toolsFilter">
+  
+      <div class="md-toolbar-tools">
+
+        <md-icon class="material-icons">search</md-icon>
+
+        <form class="flex">
+      
+          <md-input-container class="md-block">
+            
+            <label>Search</label>
+            
+            <input ng-model="filter">
+          
+          </md-input-container>
+
+        </form>
+
+        <button class="md-button md-icon-button md-ink-ripple" ng-click="toolsFilter = !toolsFilter">
+
+          <md-icon class="materials-icon">close</md-icon>
+
+        </button>
+      
+      </div>
+   
+    </md-toolbar>
+  
+    <md-table-container>
+      <table md-table>
+        <thead md-head>
+          <tr md-row>
+            <th md-column ><i class="materials-icon"></i>Profile Photo</th>
+            <th md-column >First Name</th>
+            <th md-column >Last Name</th>
+            <th md-column >E-mail</th>
+            <th md-column >User Name</th>
+            <th md-column >Last Activity</th>
+            <th md-column >Date Last Position</th>
+            <th md-column >Last Position</th>
+          </tr>
+        </thead>
+        <tbody md-body>
+          <tr md-row ng-repeat="user in vm.users" ng-click="vm.previewUser(user)" class="userSelect">
+            <td md-cell><img ng-src="{{user.image}}" alt=""></td>
+            <td md-cell>{{user.firstName}}</td>
+            <td md-cell>{{user.lastName}}</td>
+            <td md-cell>{{user.email}}</td> 
+            <td md-cell>{{user.createdAt | date}}</td> 
+            <td md-cell>{{user.updatedAt | date}}</td> 
+            <td md-cell>{{user.positions[0].updatedAt | date}}</td> 
+            <td md-cell>Polideportivo</td> 
+          </tr>
+        </tbody>
+      </table>  
+    </md-table-container>
+  
+    <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+  </md-card>
+
+</md-content>
+
+
+  
+
+
+
+
+
+
+
+<style>
+  dialog{
+    min-width: 50vw;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+  }
+  @media screen and (min-width:320px) and (max-width:480px){
+    dialog {
+      min-width:100vw;
+      height: 100vh;
+    }
+  }
+    @media screen and (min-width:480px) and (max-width:720px){
+    dialog{
+      min-width: 80vw;
+
+
+    }
+}
+</style>
+<dialog class="mdl-dialog" id="previewUser" ng-model="vm.dialog" ng-init="profile=true">
+    
+    <div class="mdl-dialog__title" ng-show="profile">Profile</div>
+    
+    <div class="mdl-dialog__content" ng-show="profile">
+
+      <div class="mdl-grid">
+
+        <div class="mdl-cell mdl-cell--5-col mdl-color--teal">
+
+          <figure>
+            <img src="" alt="">
+          </figure>
+
+        </div>
+
+        <div class="mdl-cell mdl-cell--7-col">
+           
+          <div class="mdl-list">
+            
+            <div class="mdl-list__item">
+            
+              <span style="font-size: 2rem;">Supevisor</span> 
+            
+            </div>
+            
+            <div class="mdl-list__item">
+            
+              <span style="font-size: 1.3rem;">Full Name : {{vm.userActive.firstName}} {{vm.userActive.lastName}}</span>
+            
+            </div>
+            
+            <div class="mdl-list__item">
+            
+              <span style="font-size: 1.2rem;">Salary: {{'5000' | currency}}</span>
+            
+            </div>
+
+            <div class="mdl-list__item">
+            
+              <span>Address : {{vm.userActive.address}}</span>            
+            
+            </div>
+
+            <div class="mdl-list__item">
+
+              <span >E-mail : {{vm.userActive.email}}</span>
+            
+            </div>
+
+            <div class="mdl-list__item">
+
+              <span>Phone : {{vm.userActive.phone}}</span>
+            
+            </div>
+
+            <div class="mdl-list__item">
+
+              <span>Ultima Actualizacion : {{vm.userActive.createdAt | date}}</span>
+            
+            </div>
+
+          </div>
+         
+         </div> 
+       
+       </div> 
+    
+    </div>
+
+    <div class="mdl-dialog__title" ng-hide="profile">Itinerary</div>
+    
+    <div class="mdl-dialog__content" ng-hide="profile">
+
+      <div class="mdl-grid">
+
+       <summary-user data-user="vm.userActive"></summary-user>  
+      </div> 
+    
+    </div>
+    
+    <div class="mdl-dialog__actions">
+
+        <button type="button" class="mdl-button mdl-color--teal" ng-click="profile=!profile">VIEW ITINERARY</button>
+    
+        <button type="button" class="mdl-button" ng-click="vm.closeDialog()">CLOSE</button>
+    
+    </div>
+
+</dialog>

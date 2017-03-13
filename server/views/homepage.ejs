@@ -1,0 +1,75 @@
+<md-toolbar class="md-default">
+	
+	<div class="md-toolbar-tools">	
+
+		<md-button class="md-icon-button" ng-click="openLeftMenu()">
+          
+          <md-icon md-svg-icon="./images/icons/menu_white_24px.svg"></md-icon>
+        
+        </md-button>
+
+		<h2 class="md-title">GoldSoft</h2>
+		
+		<span flex class="flex"></span>
+		
+		<md-button ui-sref="live" class="md-icon-button">
+		
+          <md-icon class="materials-icon">live_tv</md-icon>
+		
+		</md-button>
+
+		<md-button ui-sref="users" class="md-icon-button">
+		
+          <md-icon class="materials-icon">person</md-icon>
+		
+		</md-button> 
+
+		<md-button ui-sref="places" class="md-icon-button">
+          
+          <md-icon class="materials-icon">place</md-icon>
+        
+        </md-button>
+
+        <md-button ui-sref="shifts" class="md-icon-button">
+
+		  <md-icon class="materials-icon">assignment</md-icon>
+        
+        </md-button>
+
+        <md-button ui-sref="schedules" class="md-icon-button">
+
+		  <md-icon class="materials-icon">schedule</md-icon>
+        
+        </md-button>
+
+        <md-button ui-sref="attendances" class="md-icon-button">
+
+		  <md-icon class="materials-icon">assignment_ind</md-icon>
+        
+        </md-button>
+
+	</div>
+
+</md-toolbar>
+   
+<div layout="row" ng-controller="DashboardCtrl">
+
+	<md-sidenav md-component-id="left" class="md-sidenav-left md-whiteframe-4dp md-default">
+
+		<form>
+
+			<md-input-container>
+
+				<label for="testInput">Label</label>
+
+				<input id="testInput" type="text" md-sidenav-focus>
+
+			</md-input-container>
+
+		</form>
+
+  </md-sidenav>
+
+</div>
+
+	<div ui-view></div>

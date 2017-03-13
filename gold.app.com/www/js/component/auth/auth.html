@@ -1,0 +1,29 @@
+<button class="button icon-left ion-social-facebook button-block button-positive" ng-click="vm.signUp()">Login with Facebook</button>
+
+<div class="padding" 
+ ng-style="{'display':'flex','margin':'auto','position':'absolute','width':'90%','bottom':'10px'}">
+
+	<span ng-click="vm.signIn()" class="positive">Sing In</span>
+
+	<span ng-style="{'flex':'1','text-align':'center'}" class="positive">|</span>
+
+	<span ng-click="vm.signUp()" class="positive">Sing Up</span>
+
+</div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1610718555890457',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>

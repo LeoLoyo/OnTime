@@ -1,0 +1,169 @@
+<div layout="column" layout-padding layout-wrap>
+	
+	<md-card flex="100">
+	
+		<div layout="row" flex layout-align="center center">
+
+			<md-input-container class="md-icon-float md-block" flex="80">
+
+			  <label>Description</label>
+
+	  		  <md-icon class="materials-icon">place</md-icon>
+
+			  <input ng-model="vm.place.description" type="text">
+
+			</md-input-container>
+
+			<span flex></span>
+			
+			<md-button class="md-raised md-primary" ng-click="vm.saveNewPlaces()">{{vm.shiftSelect.id?'Edit':'Save'}}</md-button>
+	    
+			</div>
+			<div layout="row" flex-offset="20">
+		
+				<md-checkbox ng-disabled flex ng-model="vm.itemStep1" aria-label="Type Description">1 - Type Description</md-checkbox>
+				
+				<md-checkbox ng-disabled flex ng-model="vm.itemStep2" aria-label="Draw Place">2 - Draw Place</md-checkbox>
+				
+				<md-checkbox ng-disabled flex ng-model="vm.itemStep3" aria-label="Save Place">3 - Save Place</md-checkbox>
+			
+			</div>
+		
+		<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+
+		<div id="mapPlaces" class="map" ng-model="vm.map"></div>
+
+	</md-card>
+
+</div>
+
+<div layout="row" layout-xs="column" layout-padding layout-wrap>
+	
+	
+	<md-card flex="100">
+
+	    <md-toolbar class="md-table-toolbar md-default" ng-hide="toolsFilter">
+
+	      <div class="md-toolbar-tools">
+
+	        <h2 class="md-title">Places List</h2>
+
+	        <div flex class="flex"></div>
+	    
+	        <button class="md-button md-icon-button md-ink-ripple" ng-click="toolsFilter = !toolsFilter">
+	    
+	          <md-icon class="material-icons">filter_list</md-icon>
+	    
+	        </button>
+	      
+	      </div>
+	   
+	    </md-toolbar>
+
+	    <md-toolbar class="md-table-toolbar md-default" aria-hidden="false" ng-show="toolsFilter">
+	  
+	      <div class="md-toolbar-tools">
+
+	         <md-input-container flex class="md-icon-float md-block" ng-style="{'margin-bottom':0}">
+
+		      <label>Search</label>
+
+		      <md-icon class="materials-icon">search</md-icon>
+
+		      <input ng-model="filter" type="text">
+
+		      <md-icon class="materials-icon" ng-click="toolsFilter = !toolsFilter">close</md-icon>
+
+		    </md-input-container>
+
+	      </div>
+	   
+	    </md-toolbar>
+		
+		<md-table-container>
+		
+			<table md-table>
+
+				<thead md-head>
+				
+					<tr md-row>
+						
+						<th md-column flex>Preview</th>
+
+						<th md-column flex>Description</th>
+
+						<th flex md-column ng-style="{'text-align':'center'}">Actions</th>
+
+					</tr>					
+				</thead>
+
+				<tbody md-body>
+
+					<tr md-tr ng-repeat="place in vm.places">
+
+						<td md-cell><img src="https://a2ua.com/place/place-007.jpg" alt="" width="50px" height="50px"></td>
+						
+						<td md-cell>{{ place.description }}</td>
+						
+						<td md-cell ng-style="{'text-align':'center'}">
+							<md-icon class="md-secondary material-icons layout-padding" ng-click="vm.drawPlace(place)" >remove_red_eye</md-icon>
+
+							<md-icon class="material-icons layout-padding" ng-click="vm.itemSelect = vm.itemActual(place)">edit</md-icon>
+
+							<md-icon class="md-secondary material-icons layout-padding" >delete</md-icon>
+						</td>
+
+					</tr>
+
+				</tbody>
+
+			</table>
+
+		</md-table-container>
+
+	</md-card>
+
+
+</div>
+
+<script id="panelPlaces.html" type="text/ng-template">
+
+	<div role="dialog" aria-label="Eat me!" layout="column" layout-align="center center">
+	
+	<md-toolbar>
+		
+		<div class="md-toolbar-tools">
+
+			<h3>New Place</h3>
+
+			<span flex></span>
+			
+			<md-icon class="materials-icon" layout-align="end center">place</md-icon>
+	
+		</div>
+	
+	</md-toolbar>
+
+	<div class="demo-dialog-content">
+
+		<md-input-container class="md-icon-float md-block">
+
+		  <label>Description</label>
+
+  		  <md-icon class="materials-icon">assignment</md-icon>
+
+		  <input ng-model="vm.panelSelect.description" type="text">
+
+		</md-input-container>
+		
+		<div layout="row" layout-align="center center">
+	
+			<md-button class="md-raised md-primary" ng-click="vm.saveNewPlaces(vm.panelSelect)">{{vm.shiftSelect.id?'Edit':'Save'}}</md-button>
+    
+		</div>
+	
+	</div>
+
+</div>
+
+</script>

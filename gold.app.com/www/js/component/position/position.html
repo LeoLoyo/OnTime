@@ -1,0 +1,26 @@
+<ion-view>
+
+	<ion-content class="has-header padding" >
+
+		<figure  class="figure-class">
+
+			<img src="img/position.svg" alt="" style="max-width: 100%;">
+
+		</figure>
+		
+		<h4 class="ligth">Mi Latitud : <span>{{vm.position.lat}}</span></h4>
+		
+		<h4 class="ligth">Mi Longitude : <span>{{vm.position.long}}</span></h4>
+
+		<div class="buttons">
+
+			<button class="button button-block button-assertive" ng-click="vm.getPosition()">My position</button>
+
+			<button class="button button-block button-assertive" ng-click="vm.sendPosition()" ng-disabled="!vm.position">Send</button>
+
+		</div>
+
+	</ion-content>
+
+</ion-view>
+<!-- <div class="" id="map-canvas"></div> -->

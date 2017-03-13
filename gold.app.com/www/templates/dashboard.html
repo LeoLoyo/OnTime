@@ -1,0 +1,129 @@
+<ion-view>
+
+	<ion-side-menus enable-menu-with-back-views="true">
+
+		<ion-side-menu-content edge-drag-threshold="true" drag-content="true">		      
+	
+			<ion-nav-bar class="bar-dark">
+           
+				<ion-nav-back-button></ion-nav-back-button>
+
+				<ion-nav-buttons side="left">
+
+					<button class="button button-clear button-icon ion-navicon" menu-toggle="left"></button>
+			
+				</ion-nav-buttons>
+
+				<ion-nav-title class="title">GoldApp</ion-nav-title>
+
+				<ion-nav-buttons side="secondary">
+
+					<button ng-click="vm.modalNotifications.show()" class="button button-clear button-stable button-icon ion-android-notifications"><span ng-style="{'display':'inline-block'}" class="badge badge-positive">{{vm.notifications.length}}</span></button>
+						
+				</ion-nav-buttons>
+			
+			</ion-nav-bar>
+
+			<ion-tabs class="tabs-dark tabs-icon-top">
+
+				<ion-tab title="Position" icon-on="ion-ios-location" icon-off="ion-ios-location-outline" ui-sref="dash.position">
+					
+					<ion-nav-view name="tab-position" class="has-header"></ion-nav-view>
+
+				</ion-tab>
+
+				<ion-tab title="Itinerary" icon-on="ion-ios-paper" icon-off="ion-ios-paper-outline" ui-sref="dash.itinerary">
+				
+				    <ion-nav-view name="tab-itinerary" class="has-header"></ion-nav-view>
+
+				</ion-tab>
+
+			</ion-tabs>
+
+		</ion-side-menu-content>
+
+		<ion-side-menu width="230" expose-aside-when="large" side="left">
+			
+			<ion-pane>
+
+				<ion-content class="sidebar dark-bg" scroll="false">
+
+				  	<ion-list>
+
+				  		<ion-item>
+
+					  		<figure>
+
+					  			<img src="img/gold-medal.svg" alt="">
+					  		
+					  			<div>
+
+					  				<i class="icon ion-location"></i><span>Leonardo Loyo</span>
+							  	
+							  	</div>	
+					  		
+					  		</figure>
+				  		
+				  		</ion-item>
+				  		
+				  		<ion-item>
+
+				  			MI CUENTA
+				  		
+				  		</ion-item>
+				  		
+				  		<ion-item>
+
+				  			ITEM UNO
+				  		
+				  		</ion-item>
+
+				  		<ion-item>
+
+				  			ITEM DOS
+				  		
+				  		</ion-item>
+
+				  		<ion-item>
+
+				  			ITEM TRES
+				  		
+				  		</ion-item>
+
+				  		<ion-item>
+				  		
+					  		CERRAR SESSION
+				  		
+				  		</ion-item>
+
+				  	</ion-list>
+			
+				</ion-content>
+			
+			</ion-pane>
+
+		</ion-side-menu>
+
+	</ion-side-menus>
+
+</ion-view>
+
+<script id="modalNotifications" type="text/ng-template">
+	<ion-modal-view>
+	
+		<ion-header-bar class="bar-assertive">
+
+			<h1 class="title">Notifications</h1>
+
+			<div class="buttons">
+
+				<button class="button button-clear button-icon ion-close-circled" ng-click="vm.modalNotifications.hide()"></button>
+
+			</div>
+
+		</ion-header-bar>
+
+		<modal-notifications data-modal="vm.modalNotifications" data-notifications="vm.notifications"></modal-notifications>
+	
+	</ion-modal-view>
+</script>

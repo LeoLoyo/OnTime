@@ -1,0 +1,10 @@
+<h5>Places Saved</h5>
+<ul class="mdl-list">
+	<li class="" ng-repeat="place in vm.places" style="display: inline-block">	
+		<span class="mdl-chip mdl-chip--contact" style="cursor:pointer" ng-click="vm.drawPlace(place)">
+		    <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">{{place.description | limitTo:1}}</span>
+		    <span class="mdl-chip__text">{{place.description | uppercase}}</span>
+		</span>
+	</li>
+
+</ul>

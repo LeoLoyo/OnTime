@@ -1,0 +1,160 @@
+/**
+ * importer.less
+ *
+ * By default, new Sails projects are configured to compile this file
+ * from LESS to CSS.  Unlike CSS files, LESS files are not compiled and
+ * included automatically unless they are imported below.
+ *
+ * The LESS files imported below are compiled and included in the order
+ * they are listed.  Mixins, variables, etc. should be imported first
+ * so that they can be accessed by subsequent LESS stylesheets.
+ *
+ * (Just like the rest of the asset pipeline bundled in Sails, you can
+ * always omit, customize, or replace this behavior with SASS, SCSS,
+ * or any other Grunt tasks you like.)
+ */
+
+
+
+/*// For example:
+//
+// @import 'variables/colors.less';
+// @import 'mixins/foo.less';
+// @import 'mixins/bar.less';
+// @import 'mixins/baz.less';
+//
+// @import 'styleguide.less';
+// @import 'pages/login.less';
+// @import 'pages/signup.less';
+//
+// etc.*/
+html, body 
+  {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color:#e8e8e8;
+  }
+
+  .map 
+  {
+
+    height: 500px;
+    width: 100%;
+  }
+    .controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+.pac-container {
+  font-family: Roboto;
+}
+  .md-card{
+    padding: 1em 1em;  }
+  .places{
+    background-image: url(/images/places.jpg);
+  }
+  .places2{
+    background-image: url(/images/places2.jpg);
+  }
+
+  .trabajadores{
+    background-image: url(/images/trabajadores.jpg)    
+  }
+
+  .profile{
+    background-image: url(/images/profile.jpg)    
+  }
+  .pic{
+    background-size: 100% 100%;
+    background-position:center;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    height: 100px;
+    position: relative;
+  }
+  .pic h3{
+    position: absolute;
+    bottom: 0;
+    left: .4em;
+    color:white;
+  }
+
+  .demo-md-panel {
+  min-height: 380px;
+}
+
+.demo-dialog-example {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
+      0 13px 19px 2px rgba(0, 0, 0, 0.14),
+      0 5px 24px 4px rgba(0, 0, 0, 0.12);
+  width: 500px;
+}
+
+.demo-dialog-content {
+  padding: 0 15px;
+  width: 100%;
+}
+
+.demo-dialog-content img {
+  height: 300px;
+  margin: auto;
+}
+
+.demo-dialog-button {
+  width: 100%;
+}
+
+.demo-menu-example {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
+      0 13px 19px 2px rgba(0, 0, 0, 0.14),
+      0 5px 24px 4px rgba(0, 0, 0, 0.12);
+  width: 256px;
+}
+
+.demo-menu-item {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 48px;
+  padding: 0 16px;
+  position: relative;
+  transition: background 0.15s linear;
+  width: auto;
+}
+
+.demo-menu-item:hover,
+.demo-menu-item:focus {
+  background-color: rgb(238, 238, 238);
+}
+
+.demo-menu-item.selected {
+  color: rgb(16, 108, 200);
+}

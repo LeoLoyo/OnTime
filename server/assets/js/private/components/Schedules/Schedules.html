@@ -1,0 +1,200 @@
+<div layout="row" layout-xs="column" layout-padding layout-wrap>
+	
+	<div flex="100">
+	
+		<md-card ng-style="{'box-shadow':'none'}" layout-padding layout="row">
+
+		<div flex>
+
+			<md-input-container class="md-icon-float md-block" >
+
+				<md-icon class="materials-icon">person</md-icon>
+
+				<label>Employe</label>
+	          
+				<md-select ng-model="vm.ProgramOfWork.employee">
+
+					<md-option ng-repeat="user in vm.users" ng-value="user.id">
+					{{user.firstName}} {{user.lastName}}
+
+					</md-option>
+
+				</md-select>
+	        
+	        </md-input-container>
+
+			<md-input-container class="md-icon-float md-block">
+
+				<label>Place</label>
+
+				<md-icon class="materials-icon">place</md-icon>
+
+				<md-select ng-model="vm.ProgramOfWork.place">
+
+					<md-option ng-repeat="place in vm.places" ng-value="place.id">
+					{{place.description}}
+
+					</md-option>
+
+				</md-select>
+			
+			</md-input-container>
+			
+			<div layout="row">
+				
+				<md-input-container flex class="md-icon-float">
+
+					<label>Shift</label>
+
+					<md-icon class="materials-icon">schedule</md-icon>
+
+					<md-select ng-model="vm.ProgramOfWork.shift">
+
+						<md-option ng-repeat="shift in vm.shifts" ng-value="shift.id">
+						{{shift.description}}
+
+						</md-option>
+
+					</md-select>
+				
+				</md-input-container>
+
+				<md-input-container flex class="md-icon-float">
+
+					<md-datepicker ng-model="vm.ProgramOfWork.scheduledAppointment" md-placeholder="Enter date"
+					md-min-date="vm.minDate" md-max-date="vm.maxDate"></md-datepicker>
+
+				</md-input-container>
+
+
+			</div>		
+
+		</div>	
+
+		<div flex>
+
+
+			<div layout="column" layout-align="center center">
+
+				<img ng-src="images/man.svg" alt="" ng-style="{'max-width':'30%'}">
+		
+				<md-button class="md-raised md-primary" ng-click="vm.saveProgramOfWork(vm.ProgramOfWork)">Save</md-button>
+	    
+			</div>
+		</div>		
+			
+
+		</md-card>
+
+	</div>
+	
+	<div flex="100">
+	
+		<md-card layout-padding ng-style="{'box-shadow':'none'}">
+
+		    <md-toolbar class="md-table-toolbar md-default" ng-hide="toolsFilter">
+  
+		      <div class="md-toolbar-tools">
+
+		        <h2 class="md-title">Schedules List</h2>
+
+		        <div flex class="flex"></div>
+		    
+		        <button class="md-button md-icon-button md-ink-ripple" ng-click="toolsFilter = !toolsFilter">
+		    
+		          <md-icon class="material-icons">filter_list</md-icon>
+		    
+		        </button>
+
+		        <button class="md-button md-icon-button md-ink-ripple" ng-click="vm.panelShifts()">
+		          
+		          <md-icon class="material-icons">add</md-icon>
+		        
+		        </button>
+		      
+		      </div>
+		   
+		    </md-toolbar>
+
+		    <md-toolbar class="md-table-toolbar md-default" aria-hidden="false" ng-show="toolsFilter">
+		  
+		      <div class="md-toolbar-tools">
+
+		         <md-input-container flex class="md-icon-float md-block" ng-style="{'margin-bottom':0}">
+
+			      <label>Search</label>
+
+			      <md-icon class="materials-icon">search</md-icon>
+
+			      <input ng-model="filter" type="text">
+
+			      <md-icon class="materials-icon" ng-click="toolsFilter = !toolsFilter">close</md-icon>
+
+			    </md-input-container>
+
+
+		      
+		      </div>
+		   
+		    </md-toolbar>
+			
+			<!-- <md-divider ></md-divider> -->
+			
+			<md-table-container>
+			
+				<table md-table>
+
+					<thead md-head>
+					
+						<tr md-row>
+							
+							<th md-column flex>Place</th>
+
+							<th md-column flex>Employee</th>
+
+							<th md-column flex>Shift</th>
+							
+							<th md-column flex>Scheduled Appointment</th>
+
+							<th md-column flex>Status</th>
+
+							<th flex md-column ng-style="{'text-align':'center'}">Actions</th>
+
+						</tr>					
+					</thead>
+
+					<tbody md-body>
+
+						<tr md-tr ng-repeat="schedule in vm.schedules">
+
+							<td md-cell>{{schedule.place.description}}</td>
+							
+							<td md-cell>{{schedule.employee.firstName}} {{schedule.employee.lastName}}</td>
+							
+							<td md-cell>{{schedule.shift.description}}</td>
+
+							<td md-cell>{{schedule.scheduledAppointment | date: "mediumDate"}}</td>
+
+							<td md-cell>{{schedule.status}}</td>
+							
+							<td md-cell ng-style="{'text-align':'center'}">
+								<md-icon class="md-secondary material-icons layout-padding" >remove_red_eye</md-icon>
+
+								<md-icon class="material-icons layout-padding">edit</md-icon>
+
+								<md-icon class="md-secondary material-icons layout-padding" >delete</md-icon>
+							</td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</md-table-container>
+
+		</md-card>
+
+	</div>
+
+</div>

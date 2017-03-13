@@ -1,0 +1,23 @@
+    <div class="mdl-color--teal pic mdl-color-text--grey-50">
+    
+      <h3><i class="material-icons">person</i> {{vm.user.firstName}} {{vm.user.lastName}}</h3>
+    
+    </div>
+
+
+  <table class="mdl-data-table mdl-js-data-table">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Place</th>
+      <th>Start Time</th>
+      <th>o'clock</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="position in vm.user.positions | limitTo:5">
+      <td class="mdl-data-table__cell--non-numeric"><li class="mdl-list__item"><i class="mdl-color-text--red-700 material-icons">place</i> {{position.position.place}}</li></td>
+      <td>{{position.createdAt | date:'medium'}}</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>

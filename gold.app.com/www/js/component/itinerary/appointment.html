@@ -1,0 +1,39 @@
+<ion-pane>
+	
+	<ion-content class="has-header">
+		
+		<div class="card">
+
+			<div class="item item-icon-left">
+				<i class="icon ion-briefcase"></i>
+				<h2>{{vm.appointment.place.description}}</h2>
+				<h2>{{vm.appointment.scheduledAppointment | date:'fullDate'}}</h2>
+			</div>
+
+			<div class="item item-body">				
+
+			    <img class="full-image"  src="http://es.parisinfo.com/var/otcp/sites/images/media/1.-photos/02.-sites-culturels-630-x-405/place-de-la-concorde-grande-roue-nuit-630x405-c-otcp-amelie-dupont/23613-1-fre-FR/Place-de-la-Concorde-grande-roue-nuit-630x405-C-OTCP-Amelie-Dupont.jpg">
+			    <p>
+			      {{vm.appointment.details}}
+			    </p>
+			    <div class="flex-container">
+			      <a class="subdued">Start:{{vm.appointment.shift.timeStart | date:'shortTime'}}</a>
+			      <span class="flex"></span>
+			      <a class="subdued end">Finish:{{vm.appointment.shift.timeEnd | date:'shortTime'}}</a>
+			    </div>
+			
+			</div>
+
+		</div>
+
+		<section class="padding">
+		
+			<button class="button button-block button-dark" ng-click="vm.startWork()">Start Work</button>
+
+			<button class="button button-block button-dark hide" ng-click="vm.finishWork();">Complete Work</button>
+			
+		</section>
+
+	</ion-content>
+
+</ion-pane>

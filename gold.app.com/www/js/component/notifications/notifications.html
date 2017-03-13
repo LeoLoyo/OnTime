@@ -1,0 +1,22 @@
+<ion-content class="has-header">
+
+	<ion-list>
+
+		<ion-item class="item item-icon-left" ng-if="vm.notifications.length <= 0">
+		<i class="icon ion-email-unread"></i>Without new Notifications</ion-item>	
+
+		<ion-item class="item item-icon-left" ng-repeat="item in vm.notifications" ng-click="vm.goNotification(item)">
+
+			<i class="icon {{item.icon}}"></i>
+
+			<h2> {{ item.title }} </h2>
+			
+			<p> {{ item.description }} </p>
+			
+			<span class="item-note">See</span>
+
+    	</ion-item>
+
+	</ion-list>
+
+</ion-content>

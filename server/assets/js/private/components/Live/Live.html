@@ -1,0 +1,27 @@
+<div layout="row">
+
+  <div flex="100" layout="row">
+
+      <md-card flex="80" ng-style="{'box-shadow':'none'}" layout-padding>
+
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+      
+        <div flex id="mapLive" class="map"></div>
+      
+      </md-card>
+
+      <md-card flex="20" ng-style="{'box-shadow':'none'}" layout-padding>
+
+        <md-button class="md-raised md-accent" ng-click="vm.seeEmployees()">View employees</md-button>
+        
+        <md-button class="md-raised md-primary" ng-click="vm.seePlaces()">View places</md-button>
+
+      </md-card>
+
+  </div>
+
+</div>
+
+<script id="mapLive.html" type="text/ng-template">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, sequi expedita repellendus nemo vero beatae iste labore? Ipsam aspernatur consequuntur ratione sed itaque, quo, tenetur, quia dolores reiciendis explicabo labore.
+</script>

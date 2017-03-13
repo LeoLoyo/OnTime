@@ -1,0 +1,151 @@
+<div class="mdl-grid" style="min-height: 400px;">
+
+  <div class="mdl-cell mdl-cell--8-col">
+
+    <div class="mdl-card__media places2 pic mdl-color-text--grey-50">
+    
+        <h3>Places</h3>
+    
+    </div>
+    
+    <div id="map" ng-model="vm.map">
+    
+    </div>
+
+  </div>
+  
+  <div class="mdl-cell mdl-cell--4-col">
+
+    <h4><i class="material-icons">add</i>New Place</h4>
+     
+    <section style="padding: 1rem;text-align: center;" >
+
+      <form ng-submit="vm.savePlace()">
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+          <input class="mdl-textfield__input" type="text" id="vm.polygon.description" ng-model="vm.polygon.description">
+
+          <label class="mdl-textfield__label" for="vm.polygon.description">Description</label>
+
+        </div>
+
+      </form>
+
+    </section><!-- 
+  
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="vm.getPlaces()">New Place</button>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="vm.getPlaces()">Get Place</button> -->
+
+    <places-map data-map="vm.map"></places-map>    
+  
+  </div>
+
+</div>
+
+<div class="mdl-grid">
+
+<!--   <div class="mdl-cell mdl-cell--3-col  mdl-cell--8-col-tablet" ng-show="viewActive === 'users'">
+    
+    <div class="mdl-card__media pic mdl-color-text--grey-50 mdl-color--teal">
+    
+      <h3>List of Users</h3>
+    
+    </div>
+    
+    <list-users data-user="vm.user"></list-users>
+
+  </div> -->
+    <!-- <div class="mdl-cell mdl-cell--6-col mdl-shadow--2dp" ng-show="viewActive === 'users'"> -->
+  
+  <div class="mdl-cell mdl-cell--3-col  mdl-cell--8-col-tablet">
+    
+    <div class="mdl-color--teal pic mdl-color-text--grey-50">
+    
+      <h3>Schedule</h3>
+    
+    </div>
+
+    <ul class="demo-list-two mdl-list">
+
+      <li class="mdl-list__item mdl-list__item--two-line" ng-repeat="user in [[1,'Morning'],[2,'Afternoon'],[3,'Nightly']]" ng-click="vm.user = user">
+
+       <span class="mdl-list__item-primary-content">
+      
+          <i class="material-icons mdl-list__item-avatar">schedule</i>
+      
+          <span>{{user[0]*6}}:00 a {{(user[0]*6)+6}}:00</span>
+      
+          <span class="mdl-list__item-sub-title">{{user[1]}}</span>
+      
+        </span>
+      
+        <span class="mdl-list__item-secondary-content">
+      
+          <a class="mdl-list__item-secondary-action"><i class="material-icons">alarm</i></a>
+      
+        </span>
+      
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div class="mdl-cell mdl-cell--3-col  mdl-cell--8-col-tablet">
+    
+    <div class="mdl-color--teal pic mdl-color-text--grey-50">
+    
+      <h3>Attendance</h3>
+    
+    </div>
+    <table style="width: 100%;">
+    <thead>
+      <tr>
+
+        <th><i class="material-icons">person</i>users</th>
+        <th><i class="material-icons">room</i>place</th>
+        <th><i class="material-icons">schedule</i>Time</th>
+
+      </tr>
+    </thead>
+      
+      <tr>
+        <td>Leonardo</td>
+        <td>Polideportivo</td>
+        <td>8:00pm</td>
+      </tr>      <tr>
+        <td>Leonardo</td>
+        <td>Polideportivo</td>
+        <td>8:00pm</td>
+      </tr>      <tr>
+        <td>Leonardo</td>
+        <td>Polideportivo</td>
+        <td>8:00pm</td>
+      </tr>      <tr>
+        <td>Leonardo</td>
+        <td>Polideportivo</td>
+        <td>8:00pm</td>
+      </tr>
+    </table>
+
+  </div>        
+  
+</div>
+<!-- <dialog class="mdl-dialog" id="modal-example">
+    <div class="mdl-dialog__content">
+       Define new schedule
+       <label for="">
+       <span>Name</span>
+         <input type="text">
+       </label>
+              <label for="">
+       <span>Schedule</span>
+         <input type="time">
+       </label> 
+    </div>
+    <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button mdl-color--teal">SAVE</button>
+        <button type="button" class="mdl-button" disabled>CLOSE</button>
+    </div>
+</dialog> -->
